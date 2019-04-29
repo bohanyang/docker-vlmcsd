@@ -13,4 +13,4 @@ RUN set -ex; \
     apk del .build-deps
 
 EXPOSE 1688
-CMD ["vlmcsd"]
+CMD ["vlmcsd", "-t", "3", "-d", "-D", "-e", "-v"]
