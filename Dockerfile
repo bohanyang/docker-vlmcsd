@@ -8,7 +8,7 @@ RUN set -ex; \
     tar -x -f binaries.tar.gz binaries/Linux/intel/musl/vlmcsd-x64-musl; \
     mv binaries/Linux/intel/musl/vlmcsd-x64-musl /usr/local/bin/vlmcsd; \
     rm -r binaries binaries.tar.gz; \
-    apk del curl
+    apk del wget
 
 EXPOSE 1688
 CMD ["vlmcsd", "-t", "3", "-d", "-D", "-e", "-v"]
