@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     tags:
-      - "v*"
+      - "svn*"
 
 env:
   DOCKER_HUB_USERNAME: bohan
@@ -19,8 +19,8 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag "$DOCKER_IMAGE_REPO:latest"
       - name: Tag
-        run: docker tag "$DOCKER_IMAGE_REPO:latest" "$DOCKER_IMAGE_REPO:${GITHUB_REF##*/v}"
+        run: docker tag "$DOCKER_IMAGE_REPO:latest" "$DOCKER_IMAGE_REPO:${GITHUB_REF##*/}"
       - name: Push
         run: |
-          docker push "$DOCKER_IMAGE_REPO:${GITHUB_REF##*/v}";
+          docker push "$DOCKER_IMAGE_REPO:${GITHUB_REF##*/}";
           docker push "$DOCKER_IMAGE_REPO:latest"
