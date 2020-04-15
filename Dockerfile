@@ -1,6 +1,6 @@
-FROM alpine:3.9
+FROM alpine:3.11
 
-ARG VLMCSD_VERSION='svn1112'
+ARG VLMCSD_VERSION='svn1113'
 
 RUN set -ex; \
     apk add --no-cache wget; \
